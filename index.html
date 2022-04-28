@@ -1,0 +1,739 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <script type="module" src="./node_modules/elite-forms"></script> -->
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap');
+  </style>
+  <title>Document</title>
+</head>
+<body>
+  <div id="header">
+  </div>
+  <div class="sidenav">
+    <div id="logo">
+      <img  src="assets/elite-forms-logo.png" height="70">
+    </div>
+    <a href="#how">How To Use</a>
+    <a href="#attributes">Attributes</a>
+    <a href="#validationRules">Validation Rules</a>
+    <a href="#conditionalFields">Conditional Fields</a>
+    <a href="#stylingTips">Styling Tips</a>
+  </div>
+  <div class="main">
+
+    <div class="header" ></div>
+
+    <div class="topic" id="how">
+
+      <div class="topic-main">How To Use</div>
+      <div class="topic-submain">Installation:</div>
+      <div class="tabText">
+        <div>EliteForms is currently optimized with Lit developers in mind, with optimization for other front-end frameworks soon to come.</div>
+        <div>EliteForms is published using Node Package Manager, so installing is simple! Just type the following into your command terminal:</div>
+      </div>
+      <div class="sampleCodeContainer">
+        <img class="sampleCode" src="./assets/install-elite-forms.png">
+        <div class="tabText">Install elite-forms library using NPM</div>
+      </div>
+      <div class="sampleCodeContainer">
+        <img class="sampleCode" src="./assets/import-elite-forms.png">
+        <div class="tabText">Import elite-forms library into your project</div>
+      </div>
+
+      <div class="topic-submain">Getting Started:</div>
+      <div class="topic-subsubmain">Overview</div>
+      <div class="tabText">
+        <div>There are only two custom html elements you will need to learn in order to become a master at creating robust and performant forms. </div>
+      </div>
+      <div class="tabText">
+        <div>The custom &ltelite-input&gt tag serves as a direct analog to the native &ltinput&gt html element. Use &ltelite-input&gt to build INDIVIDUAL input fields. These are the building blocks for your form and where you should start!</div>
+      </div>
+      <div class="tabText">
+        <div>The custom &ltelite-form&gt tag serves as a direct analog to the native &ltform&gt html element. Use &ltelite-form&gt to wrap all the &ltelite-input&gt fields you created. Every &ltelite-form&gt comes with a prebuilt with a customizable Submit button. When a user clicks submit, &ltelite-form&gt will check each and every input field nested within, and only invoke the developer supplied callback function when no errors exist. </div>
+      </div>
+      <div class="tabText">
+        <div>If you require an input type or custom input field that is not already supported by &ltelite-input&gt, rest assured knowing that you can add native &ltinput&gt fields and &ltelite-form&gt will include those input values in its values objet. NOTE: &ltelite-form&gt can only validate values from &ltelite-input&gt fields. Also, keep in mind that ALL input fileds (whether native or elite-forms) requires a class name of 'elite-input'.</div>
+      </div>
+      <div class="sampleCodeContainer">
+        <img class="sampleCode" src="./assets/elite-input-sample.png">
+      </div>
+      <div class="topic-subsubmain">Using the <span style="color: #324fff">&ltelite-input&gt</span> tag</div>
+      <div class="tabText">
+      <div>Every &ltelite-input&gt field MUST contain:</div>
+      <ol>
+        <li>A unique id attribute</li>
+        <li>A supported type attribute</li>
+        <li>A class name of 'elite-input'</li>
+      </ol>
+      <div>Use our custom &ltelite-input&gt tag with your desired type attribute to create any input field.</div>
+      <div>Types supported include:</div>
+      <ul>
+        <li>Text
+          <ul>
+            <li>Email</li>
+            <li>Password</li>
+            <li>Date</li>
+          </ul>
+        </li>
+        <li>Radio</li>
+        <li>Checkbox</li>
+        <li>Select</li>
+        <li>Range</li>
+        <li>Textarea</li>
+      </ul>
+      </div>
+      <div class="topic-subsubmain">Using the <span style="color: #324fff">&ltelite-form&gt</span> tag</div>
+      <div class="tabText"> The &ltelite-form&gt element can be used as a parent element to bind child elements together yielding a composite form element. The &ltelite-form&gt element also renders a submit button at the bottom of the element which when clicked, checks its child elements’ validation status before executing a callback function passed in by the developer.
+      </div>
+      <div class="tabText">
+        <div>Every input field nested within an &ltelite-form&gt tag must contain:</div>
+        <ol>
+          <li>A callback function. This function will be invoked when the submit button is clicked and no errors exist in the form</li>
+        </ol>
+        <div>NOTE: the callback function must take at least one argument - an object that contains all the values of each input field.</div>
+      </div>
+      <div class="sampleCodeContainer">
+        <img class="sampleCode" src="./assets/elite-form-sample.png">
+      </div>
+      <div class="tabText">
+      <p>Our custom &ltelite-form&gt element allows you to validate the entire form before a submit event and comes equipped with a Submit button. </p>
+      </div>
+
+      <div class="topic-subsubmain">Field Validation</div>
+      <div class="tabText">
+      <p>Include the validationRules attribute in your &ltelite-input&gt element with the rules you’d like applied to the form field. </p>
+      <div>Learn more about all <a class="showLink" href="#validationRules">validation rules here</a></div>
+      </div>
+      <div class="sampleCodeContainer">
+        <img class="sampleCode" src="./assets/EliteForm input types screenshots/email.png">
+      </div>
+      <div class="sampleCodeContainer">
+        <img class="sampleCode" src="./assets/EliteForm input types screenshots/password.png">
+      </div>
+      <div class="topic-subsubmain">Form Validation</div>
+      <div class="tabText">
+        <p>The submit event will not fire successfully unless all fields have passed its validation rules. Our form validator confirms the final state of each element before completing. </p>
+      </div>
+    </div>
+
+    <div class="topic" id="attributes">
+      <div class="topic-main">Attributes</div>
+        <div class="topic-submain">Attributes for <span style="color:#324fff">&ltelite-input&gt</span>:</div>
+          <ol>
+            <li>id (REQUIRED)
+              <ul>
+                <li>Every elite-input MUST have a unique id</li>
+              </ul>
+            </li>
+            <li>type (REQUIRED)
+              <ul>
+                <li>Every elite-input MUST include a type attribute</li>
+                <li>Possible type attributes</li>
+                <ul>
+                  <li>Text
+                    <ul>
+                      <li>Email</li>
+                      <li>Password</li>
+                      <li>Date</li>
+                    </ul>
+                  </li>
+                  <li>Radio</li>
+                  <li>Checkbox</li>
+                  <li>Select</li>
+                  <li>Range</li>
+                  <li>Textarea</li>
+                </ul>
+              </ul>
+            </li>
+            <li>class (REQUIRED)
+              <ul>
+                <li>Every elite-input MUST include a class name "elite-input". You may add additional classes as needed.</li>
+              </ul>
+            </li>
+            <li>label
+              <ul>
+                <li>Displays descriptive text above the input field</li>
+              </ul>
+            </li>
+            <li>name
+              <ul>
+                <li>Used in certain validation rules to provide a more custom error response</li>
+              </ul>
+            </li>
+            <li>placeholder
+              <ul>
+                <li>Displays descriptive text inside input field. Used with text type inputs.</li>
+              </ul>
+            </li>
+            <li>note
+              <ul>
+                <li>Displays descriptive text below the input field</li>
+              </ul>
+            </li>
+            <li>validationRules
+              <ul>
+                <li>Must be an object with rules you’d like applied to the field. Please see our list of available rules here[insert link]. </li> <!--INCOMPLETE!! add a link-->
+              </ul>
+            </li>
+            <li>errorBehavior
+              <ul>
+                <li>Determines when error messages render: on every input (default), on every blur event, on a 500 ms debounce</li> <!--INCOMPLETE!! add a link-->
+                <ul>
+                  <li>Default
+                    <ul>
+                      <li>Not specifying an error behavior results in error messages rendering immediately after each input and persist until there are no errors</li>
+                    </ul>
+                  </li>
+                  <li>Debounce
+                    <ul>
+                      <li>Error messages will render when the field detects a pause on input and delay any validation functions from executing until after 500ms have passed.</li>
+                    </ul>
+                  </li>
+                  <li>Blur
+                    <ul>
+                      <li>Error messages will render when the field detects a blur event. </li>
+                    </ul>
+                  </li>
+                </ul>
+              </ul>
+            </li>
+            <li>conditional
+              <ul>
+                <li>Used only when nesting an elite-input inside another. Used by the parent elite-input, and renders the child elite-input only when user input value matches a specific value</li>
+                <li>Learn more about <a class="showLink" href="#conditionalFields">conditional fields here</a></li>
+              </ul>
+            </li>
+            <li>validationName
+              <ul>
+                <li>Used in certain validation rules to provide a more custom error response.</li>
+              </ul>
+            </li>
+            <li>options
+              <ul>
+                <li>Used for radio box, checkbox, and select inputs. Accepts an array of objects with two properties: option and value.</li>
+                <ul>
+                  <li>Option: the string that will be displayed on the form for the user</li>
+                  <li>Value:
+                    <ul>
+                      <li>the string collected for internal data collection.</li>
+                      <li>used to group radio boxes and checkboxes together. </li>
+                    </ul>
+                  </li>
+                </ul>
+              </ul>
+            </li>
+            <li>min
+              <ul>
+                <li>Used for range and date type inputs. Specifies a minimum value</li>
+              </ul>
+            </li>
+            <li>max
+              <ul>
+                <li>Used for range and date type inputs. Specifies a maximum value</li>
+              </ul>
+            </li>
+            <li>showIndex
+              <ul>
+                <li>Used with range type inputs only. Accepts the boolean: true. Displays the minimum and maximum range values at the ends of the slider. </li>
+              </ul>
+            </li>
+            <li>showVal
+              <ul>
+                <li>Used with range type inputs only. Accepts the boolean: true. Displays the value of the slider on change. </li>
+              </ul>
+            </li>
+            <li>defaultHidden
+              <ul>
+                <li>Used for select inputs. Displays a hidden & disabled attribute as the field’s default value. Accepts a string.</li>
+              </ul>
+            </li>
+            <li>rows
+              <ul>
+                <li>Used for textarea inputs. Sets the height of your text area. If not specified, the default will be set to 4. </li>
+              </ul>
+            </li>
+            <li>cols
+              <ul>
+                <li>Used for textarea inputs. Sets the width of your text area. If not specified, the default will be set to 50.</li>
+              </ul>
+            </li>
+            <li>showWordCount
+              <ul>
+                <li>Used for textarea inputs. Accepts the boolean: true. Displays a text area’s word count.</li>
+              </ul>
+            </li>
+            <li>Style Attributes
+              <ul>
+                <li> The elite input field includes default styling that is both simple and generic. Our design philosophy was to style something that could be used by most developers out of the box. However, learn more about implementing even more <a class="showLink" href="#stylingTips">custom styling here</a></li>
+              </ul>
+            </li>
+          </ol>
+        <div class="topic-submain">Attributes for <span style="color:#324fff">&ltelite-form&gt</span>:</div>
+          <ol>
+            <li>onSubmit (REQUIRED)
+              <ul>
+                <li>Every elite-form MUST have an onSubmit attribute</li>
+                <li>onSubmit value must be a function definition. This callback will be invoked on a form submission event if all input fields are error free.</li>
+              </ul>
+            </li>
+            <li>buttonName
+              <ul>
+                <li>Used to change the name of the submit form button</li>
+                <li>Default value is 'Submit'</li>
+              </ul>
+            </li>
+            <li>badFormMessage
+              <ul>
+                <li>Used to change the error message that is displayed if there input fields contain errors and the submit button is clicked.</li>
+                <li>Default value is '!! Missing Fields !!'</li>
+              </ul>
+            </li>
+            <li>Style Attributes
+              <ul>
+                <li> The elite form field includes default styling that is both simple and generic. Our design philosophy was to style something that could be used by most developers out of the box. However, learn more about implementing even more <a class="showLink" href="#stylingTips">custom styling here</a></li>
+              </ul>
+            </li>
+          </ol>
+    </div>
+
+    <div class="topic" id="validationRules">
+      <div class="topic-main">Validation Rules</div>
+      <div>
+      <ol id="VRLinks">
+        <li><a href="#after">after</a></li>
+        <li><a href="#alpha">alpha</a></li>
+        <li><a href="#alphanumeric">alphanumeric</a></li>
+        <li><a href="#before">before</a></li>
+        <li><a href="#between">between</a></li>
+        <li><a href="#checkExisting">checkExisting</a></li>
+        <li><a href="#email">email</a></li>
+        <li><a href="#endsWith">endsWith</a></li>
+        <li><a href="#matches">matches</a></li>
+        <li><a href="#max">max</a></li>
+        <li><a href="#maxWords">maxWords</a></li>
+        <li><a href="#min">min</a></li>
+        <li><a href="#minWords">minWords</a></li>
+        <li><a href="#not">not</a></li>
+        <li><a href="#number">number</a></li>
+        <li><a href="#reqLower">reqLower</a></li>
+        <li><a href="#reqNumber">reqNumber</a></li>
+        <li><a href="#reqSpecialChar">reqSpecialChar</a></li>
+        <li><a href="#required">required</a></li>
+        <li><a href="#reqUpper">reqUpper</a></li>
+      </ol>
+      </div>
+      <div class="topic-submain" id="after">after</div>
+      <ul>
+        <li>Description: used only with the date input. Checks if the input date is AFTER a specified date. Can be used in conjunction with the min / max attributes, but is not required.</li>
+        <li>Implementation:</li>
+          <ul>
+            <li>Input type must be date</li>
+            <li>The validationRule ‘after’ property requires a value of an array as input. The array can accept up to 3 elements, all must be number types and correspond accordingly [ year, month, day ]
+              <ul>
+                <li>If only one element is provided: input dates BEFORE provided year will render an error</li>
+                <li>If two elements are provided: input dates BEFORE provided year and month will render an error</li>
+                <li>If three elements are provided: input dates BEFORE provided year, month and day will render an error</li>
+              </ul>
+            </li>
+          </ul>
+        </ul>
+      <div class="sampleCodeContainer">
+        <img class="sampleCode" src="./assets/EliteForm rules screenshots/after.png">
+      </div>
+      <div class="topic-submain" id="alpha">alpha</div>
+      <ul>
+        <li>Description: checks if input contains ONLY alphabetical characters</li>
+        <li>Implementation:</li>
+          <ul>
+            <li>It is encouraged to only use this rule with text inputs. However, it can also be used with other input types depending on use case</li>
+            <li>The validationRule ‘alpha’ property requires a boolean: true value</li>
+          </ul>
+      </ul>
+      <div class="sampleCodeContainer">
+        <img class="sampleCode" src="./assets/EliteForm rules screenshots/alpha.png">
+      </div>
+      <div class="topic-submain" id="alphanumeric">alphanumeric</div>
+      <ul>
+        <li>Description: checks if input contains ONLY alphabetical characters or numbers</li>
+        <li>Implementation:</li>
+          <ul>
+            <li>It is encouraged to only use this rule for text inputs. However, it can also be used with other input types depending on use case.</li>
+            <li>The validationRule ‘alphanumeric’ property requires a boolean: true value</li>
+          </ul>
+        </ul>
+      <div class="sampleCodeContainer">
+        <img class="sampleCode" src="./assets/EliteForm rules screenshots/alphanumeric.png">
+      </div>
+      <div class="topic-submain" id="before">before</div>
+      <ul>
+        <li>Description: used only with the date input. Checks if the input date is BEFORE a specified date. Can be used in conjunction with the min / max attributes, but is not required.</li>
+        <li>Implementation:</li>
+          <ul>
+            <li>Input type must be date</li>
+            <li>The validationRule ‘before’ property requires a value of an array as input. The array can accept up to 3 elements, all must be number types and correspond accordingly [ year, month, day ]
+              <ul>
+                <li>If only one element is provided: input dates AFTER provided year will render an error</li>
+                <li>If two elements are provided: input dates AFTER provided year and month will render an error</li>
+                <li>If three elements are provided: input dates AFTER provided year, month and day will render an error</li>
+              </ul>
+            </li>
+          </ul>
+      </ul>
+      <div class="sampleCodeContainer">
+        <img class="sampleCode" src="./assets/EliteForm rules screenshots/before.png">
+      </div>
+      <div class="topic-submain" id="between">between</div>
+      <ul>
+        <li>Description: used with text, range and checkbox inputs. 
+          <ul>
+            <li>Text: checks if input value’s length is between a specified range</li>
+            <li>Range: checks if input value is within a specified range</li>
+            <li>Checkbox: requires a user to select a specified minimum and maximum number of checkboxes</li>
+          </ul>
+          <div>NOTE: Between does not validate date inputs. Use the before or after validation rule to handle data validation for date inputs.</div>
+        </li>
+        <li>Implementation:</li>
+          <ul>
+            <li>Appropriate input types include text, password, range, textarea, checkbox</li>
+            <li>The validationRule ‘between’ property requires a value of an array with two elements. The first element specifies the minimum value, and the second element specifies the maximum value. </li>
+          </ul>
+      </ul>
+      <div class="sampleCodeContainer">
+        <img class="sampleCode" src="./assets/EliteForm rules screenshots/between.png">
+      </div>
+      <div class="topic-submain" id="checkExisting">checkExisting</div>
+      <ul>
+        <li>Description: Accepts an asynchronous function that makes a call to your database to check if there is an already existing record. </li>
+        <div class="tabText">Note: Your function must return a boolean: true if your server successfully returns a query for the validation function to throw an error. </div>
+        <li>Implementation:</li>
+          <ul>
+            <li>The validationRule ‘checkExisting’ property requires a callback function definition</li>
+            <li>The callback function should make an API request to your database and return a boolean value of TRUE if the input value already exists in your database</li>
+          </ul>
+      </ul>
+      <div class="sampleCodeContainer">
+        <img class="sampleCode" src="./assets/EliteForm rules screenshots/checkExisting.png">
+      </div>
+      <div class="topic-submain" id="email">email</div>
+      <ul>
+        <li>Description: checks if input is a valid email address and renders an error message if the input does not have valid email syntax.</li>
+        <li>Implementation:</li>
+          <ul>
+            <li>type attribute must be text: email</li>
+            <li>The validationRule ‘email’ property requires a boolean: true value</li>
+          </ul>
+      </ul>
+      <div class="sampleCodeContainer">
+        <img class="sampleCode" src="./assets/EliteForm rules screenshots/email.png">
+      </div>
+      <div class="topic-submain" id="endsWith">endsWith</div>
+      <ul>
+        <li>Description: compares the input string against an array of strings to determine if the input has a valid ending.</li>
+        <li>Implementation:</li>
+          <ul>
+            <li>type attribute must be text</li>
+            <li>The validationRule ‘endsWith’ property requires an array of strings as its value. Each string represents a valid ending.</li>
+          </ul>
+      </ul>
+      <div class="sampleCodeContainer">
+        <img class="sampleCode" src="./assets/EliteForm rules screenshots/endsWith.png">
+      </div>
+      <div class="topic-submain" id="matches">matches</div>
+      <ul>
+        <li>Description: compares the input string against a custom regex value or an array of strings with your desired values.</li>
+        <li>Implementation:</li>
+          <ul>
+            <li>If using an array of valid string values
+              <ul>
+                <li>type attribute must be text</li>
+                <li>The validationRule ‘matches’ property requires a value of an object with two properties: type and values
+                  <ul>
+                    <li>type: ‘string’</li>
+                    <li>values: an array of strings that you want as valid inputs</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>If using a custom regex string
+              <ul>
+                <li>type attribute must be text</li>
+                <li>validationRule ‘matches’ property requires a value of an object with only one property: regex
+                  <ul>
+                    <li>regex: the custom regex string you would like to match</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+      </ul>
+      <div class="sampleCodeContainer">
+        <img class="sampleCode" src="./assets/EliteForm rules screenshots/matches.png">
+      </div>
+      <div class="topic-submain" id="max">max</div>
+      <ul>
+        <li>Description: used with text, range and checkbox input types. 
+          <ul>
+            <li>Text: checks if input string value is at most a maximum length</li>
+            <li>Range: checks if input range value is less than a maximum number</li>
+            <li>Checkbox: requires user to select at most a maximum number of options</li>
+          </ul>
+          <div>NOTE: Max does not validate date type attributes. Use the before or after validation rule to handle data validation for date inputs.</div>
+        </li>
+        <li>Implementation:</li>
+          <ul>
+            <li>Appropriate type attributes include text, password, range, textarea, checkbox</li>
+            <li>validationRule ‘max’ property requires a Number value. </li>
+          </ul>
+      </ul>
+      <div class="sampleCodeContainer">
+        <img class="sampleCode" src="./assets/EliteForm rules screenshots/max.png">
+      </div>
+      <div class="topic-submain" id="maxWords">maxWords</div>
+      <ul>
+        <li>Description: checks if input has a maximum word count</li>
+        <li>Implementation:</li>
+          <ul>
+            <li>Works with text and textarea inputs. </li>
+            <li>The validationRule ‘maxWords’ property requires a Number value that represents a maximum word count</li>
+          </ul>
+      </ul>
+      <div class="sampleCodeContainer">
+        <img class="sampleCode" src="./assets/EliteForm rules screenshots/minWords_maxWords.png">
+      </div>
+      <div class="topic-submain" id="min">min</div>
+      <ul>
+        <li>Description: used with text, range and checkbox input types. 
+          <ul>
+            <li>Text: checks if input string value has a minimum length</li>
+            <li>Range: checks if input range value is greater than a minimum number</li>
+            <li>Checkbox: requires user to select a minimum number of options</li>
+          </ul>
+          <div>NOTE: Min rule does not validate date inputs. Use the before or after validation rule to handle data validation for date inputs.
+          </div>
+        </li>
+        <li>Implementation:</li>
+          <ul>
+            <li>Appropriate type attributes include text, password, range, textarea, checkbox</li>
+            <li>validationRule ‘min’ property requires a Number value. </li>
+          </ul>
+      </ul>
+      <div class="sampleCodeContainer">
+        <img class="sampleCode" src="./assets/EliteForm rules screenshots/min.png">
+      </div>
+      <div class="topic-submain" id="minWords">minWords</div>
+      <ul>
+        <li>Description: checks if input has a minimum number of words</li>
+        <li>Implementation:</li>
+          <ul>
+            <li>Works with text and textarea inputs. </li>
+            <li>The validationRule ‘minWords’ property requires a Number value that represents a minimum word count</li>
+          </ul>
+      </ul>
+      <div class="sampleCodeContainer">
+        <img class="sampleCode" src="./assets/EliteForm rules screenshots/minWords_maxWords.png">
+      </div>
+      <div class="topic-submain" id="matches">matches</div>
+      <ul>
+        <li>Description: compares the input string against a custom regex value or an array of strings. An error will occur if a match is found. </li>
+        <li>Implementation:</li>
+          <ul>
+            <li>If using an array of forbidden string values
+              <ul>
+                <li>type attribute must be text</li>
+                <li>The validationRule ‘not’ property requires a value of an object with two properties: type and values
+                  <ul>
+                    <li>type: ‘string’</li>
+                    <li>values: an array of strings that are invalid inputs</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>If using a custom regex string
+              <ul>
+                <li>type attribute must be text</li>
+                <li>validationRule ‘not’ property requires a value of an object with only one property: regex
+                  <ul>
+                    <li>regex: the custom regex string for which matching events will render errors</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+      </ul>
+      <div class="sampleCodeContainer">
+        <img class="sampleCode" src="./assets/EliteForm rules screenshots/matches.png">
+      </div>
+      <div class="topic-submain" id="number">number</div>
+      <ul>
+        <li>Description: checks if input contains ONLY numerical characters</li>
+        <li>Implementation:</li>
+          <ul>
+            <li>It is encouraged to only use this rule with text inputs. However, it can also be used with other input types depending on use case</li>
+            <li>The validationRule ‘number’ property requires a boolean: true value</li>
+          </ul>
+      </ul>
+      <div class="sampleCodeContainer">
+        <img class="sampleCode" src="./assets/EliteForm rules screenshots/number.png">
+      </div>
+      <div class="topic-submain" id="reqLower">reqLower</div>
+      <ul>
+        <li>Description: checks if input contains AT LEAST one lowercase alphabetical character. This rule is different from ‘alpha’ as it does not render an error if other character types exist in input value. </li>
+        <li>Implementation:</li>
+          <ul>
+            <li>Works with text and password inputs.</li>
+            <li>The validationRule ‘reqLower’ property requires a boolean true value</li>
+          </ul>
+      </ul>
+      <div class="sampleCodeContainer">
+        <img class="sampleCode" src="./assets/EliteForm rules screenshots/reqNumber_reqUpper_reqLower_reqSpecialChar.png">
+      </div>
+      <div class="topic-submain" id="reqNumber">reqNumber</div>
+      <ul>
+        <li>Description: checks if input contains AT LEAST one number. This rule is different from ‘number’ as it does not render an error if other character types exist in input value. </li>
+        <li>Implementation:</li>
+          <ul>
+            <li>Works with text and password inputs. </li>
+            <li>The validationRule ‘reqNumber’ property requires a boolean: true value</li>
+          </ul>
+      </ul>
+      <div class="sampleCodeContainer">
+        <img class="sampleCode" src="./assets/EliteForm rules screenshots/reqNumber_reqUpper_reqLower_reqSpecialChar.png">
+      </div>
+      <div class="topic-submain" id="reqSpecialChar">reqSpecialChar</div>
+      <ul>
+        <li>Description: checks if input contains AT LEAST one special character ( ! @ # $ % ^ & * ? ) </li>
+        <li>Implementation:</li>
+          <ul>
+            <li>Works with text and password inputs. </li>
+            <li>The validationRule ‘reqSpecialChar’ property requires a boolean: true value</li>
+          </ul>
+      </ul>
+      <div class="sampleCodeContainer">
+        <img class="sampleCode" src="./assets/EliteForm rules screenshots/reqNumber_reqUpper_reqLower_reqSpecialChar.png">
+      </div>
+      <div class="topic-submain" id="required">required</div>
+      <ul>
+        <li>Description: checks to verify the input is not empty. This validation rule can be used with any input type. </li>
+        <li>Implementation:</li>
+          <ul>
+            <li>The validationRule ‘required’ property requires a boolean: true value</li>
+          </ul>
+      </ul>
+      <div class="sampleCodeContainer">
+        <img class="sampleCode" src="./assets/EliteForm rules screenshots/required.png">
+      </div>
+      <div class="topic-submain" id="reqUpper">reqUpper</div>
+      <ul>
+        <li>Description: checks if input contains AT LEAST one uppercase alphabetical character. This rule is different from ‘alpha’ as it does not render an error if other character types exist in input value. </li>
+        <li>Implementation:</li>
+          <ul>
+            <li>Works with text and password inputs. </li>
+            <li>The validationRule ‘reqUpper’ property requires a boolean: true value</li>
+          </ul>
+      </ul>
+      <div class="sampleCodeContainer">
+        <img class="sampleCode" src="./assets/EliteForm rules screenshots/reqNumber_reqUpper_reqLower_reqSpecialChar.png">
+      </div>
+    </div>
+
+    <div class="topic" id="conditionalFields">
+      <div class="topic-main">Conditional Fields</div>
+      <div class="topic-submain">What are conditional fields?</div>
+      <div class="tabText">Conditional fields allow you to nest an elite-input field inside another elite-input field. When user input on the parent elite-input field matches a certain criteria, the nested elite-input field will appear.</div>
+      <div class="topic-submain">How to use conditional fields?</div>
+      <div class="tabText">In the parent elite-input field, use the conditional attribute and assign it the value of an array. The array should contain a string with the valid value that will cause the conditional child elite-input field to render.</div>
+      <div class="tabText">Nest a child elite-input field normally. There are no limitations to how the nested elite input field is customized.</div>
+      <div class="sampleCodeContainer">
+        <img class="sampleCode" src="./assets/EliteForm input types screenshots/conditional.png">
+      </div>
+      <div class="sampleCodeContainer">
+        <img class="sampleCode" src="./assets/Gifs/dessert_conditional.gif">
+      </div>
+
+    </div>
+
+    <div class="topic" id="stylingTips">
+      <div class="topic-main">Styling Tips</div>
+      <div class="topic-submain">Additional Styling Attributes</div>
+      <div class="tabText">Both elite-input and elite-form come with additional attributes that developers can use to add even more customizability</div>
+      <div class="topic-submain">Attributes to style <span style="color:#324fff">&ltelite-input&gt</span>:</div>
+          <ol>
+            <li>styles
+              <ul>
+                <li>Used to override the CSS of the most outer div of each elite-input.</li>
+              </ul>
+            </li>
+            <li>labelStyles
+              <ul>
+                <li>Used to override the CSS of labels</li>
+              </ul>
+            </li>
+            <li>inputStyles
+              <ul>
+                <li>Used to override the CSS of input fields, including all input field type and also textarea and select  </li>
+              </ul>
+            </li>
+            <li>noteStyles
+              <ul>
+                <li>Used to override the CSS of notes</li>
+              </ul>
+            </li>
+            <li>errorStyles
+              <ul>
+                <li>Used to override the CSS of errors</li>
+              </ul>
+            </li>
+            <li>showWordCountStyles
+              <ul>
+                <li>For textarea, used to override the CSS of the div, class name ‘show-word-count’, which is displayed when showWordCount is true.
+                </li>
+              </ul>
+            </li>
+            <li>radioCheckboxContainerStyles
+              <ul>
+                <li>For checkbox and radio type input, used to override CSS of the div, class name ‘radio-checkbox-container’, wrapping all checkbox/radio inputs and options.</li>
+              </ul>
+            </li>
+            <li>optionStyles
+              <ul>
+                <li>For checkbox and radio type input, used to override CSS of the divs, class name ‘options’, wrapping each checkbox/radio input and a corresponding option.</li>
+              </ul>
+            </li>
+            <li>rangeMinmaxIndexboxStyles
+              <ul>
+                <li>For range type input, used to override CSS of the div, class name ‘range-minmax-indexbox’, where the minimum and maximum indexes are shown.</li>
+              </ul>
+            </li>
+            <li>rangeValueboxStyles
+              <ul>
+                <li>For range type input, used to override CSS of the div, class name ‘range-valuebox’, where the current value is shown. </li>
+              </ul>
+            </li>
+          </ol>
+      <div class="topic-submain">Attributes to style <span style="color:#324fff">&ltelite-form&gt</span>:</div>
+      <ol>
+        <li>buttonStyles
+          <ul>
+            <li>Used to override the CSS of the submit button.</li>
+          </ul>
+        </li>
+        <li>badFormMessageStyles
+          <ul>
+            <li>Used to override the CSS of the bad form message, class name ‘sbm-err-msg’ which will be displayed when the submitting is failed.</li>
+          </ul>
+        </li>
+        <li>buttonContainerStyles
+          <ul>
+            <li>Used to override the CSS of the div, class name ‘button-container’, which is wrapping the submit button and the bad form message.</li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+  </div>
+
+</body>
+</html>
